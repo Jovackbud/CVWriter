@@ -2,7 +2,7 @@ from src.utils import extract_text_from_pdf, get_cv_files
 from src.writer import write_cv, write_cover
 import joblib
 
-cv_directory = 'dataset/cv'  # create the folder
+cv_directory = 'cv'  # create the folder
 cv_file = get_cv_files(cv_directory)
 cv = extract_text_from_pdf(cv_file)
 
