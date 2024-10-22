@@ -1,5 +1,17 @@
-import pdfplumber
+import glob
 import os
+import pdfplumber
+
+
+def get_file(directory):
+    """
+    Retrieves the single PDF file from the specified JD directory.
+    Throws an error if there are zero or more than one PDF file.
+    """
+    cv = glob.glob(os.path.join(directory, '*.pdf'))
+    if len(cv) != 1:
+        raise ValueError(f"Expected exactly one PDF file in {directory}, but found {len(cv)}.")
+    return cv[0]
 
 
 def extract_text_from_pdf(pdf_path):
@@ -15,8 +27,3 @@ def extract_text_from_pdf(pdf_path):
         return ""
 
 
-def get_cv_files(directory):
-    """
-    Retrieves all PDF files from the specified directory.
-    """
-    return os.path.join(directory, '*.pdf')

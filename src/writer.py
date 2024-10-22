@@ -14,8 +14,8 @@ generator_model = genai.GenerativeModel(
     system_instruction="You are a personal assistant helping in my job search in a very competitive field. You are "
                        "experienced at writing CVs and you will be helping finetune my CV to the Job Descriptions I "
                        "want to apply for by emphasizing what is necessary, downplaying some and removing others "
-                       "completely. Also add a note for skills I could add if I had them. I will also want a cover "
-                       "letter as well"
+                       "completely. Also add a note for skills I could add if I had them. Also, you may have to write "
+                       "cover letters sometimes if I ask"
 )
 
 

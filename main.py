@@ -1,15 +1,17 @@
-from src.utils import extract_text_from_pdf, get_cv_files
 from src.writer import write_cv, write_cover
+from src.utils import get_file, extract_text_from_pdf
 import joblib
 
-cv_directory = 'cv'  # create the folder
-cv_file = get_cv_files(cv_directory)
-cv = extract_text_from_pdf(cv_file)
 
-jd = input('Paste the job description here: ')
+cv_dir = 'data/cv'
+cv_path = get_file(cv_dir)
+cv_text = extract_text_from_pdf(cv_path)
+jd_dir = 'data/jd'
+jd_path = get_file(jd_dir)
+jd_text = extract_text_from_pdf(jd_path)
 
-new_cv = write_cv(cv, jd)
-cover_letter = write_cover(new_cv, jd)
+new_cv = write_cv(cv_text, jd_text)
+cover_letter = write_cover(new_cv, jd_text)
 
-joblib.dump(cover_letter, 'cover_letter.docx')
-joblib.dump(cv, 'cv.docx')
+joblib.dump(cover_letter, 'data/reponse/cover_letter.txt')
+joblib.dump(new_cv, 'data/reponse/cv.txt')
